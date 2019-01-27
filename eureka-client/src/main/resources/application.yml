@@ -1,0 +1,10 @@
+server:
+  port: 8762
+spring:
+  application:
+    # 此属性被用来作为applicationContext的id，没有设置则采用"application"
+    name: service-hi
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

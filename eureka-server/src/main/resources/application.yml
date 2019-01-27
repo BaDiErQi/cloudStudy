@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  ############# 客户端
+  client:
+    # 表示此实例是否注册它的信息到eureka-server中以供其他服务发现，某些情况你希望你的实例不被发现，但是可以发现其他服务
+    register-with-eureka: false
+    # 表示这个客户端是否可以从eureka-server中拉取注册信息
+    fetch-registry: false
+    # 可用zone 和 能够与eureka-server通信的全限定URL列表 的映射，每个值可以是单一的URL也可以是逗号分割的列表
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
