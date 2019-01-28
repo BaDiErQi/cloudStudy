@@ -39,3 +39,25 @@ https://www.jianshu.com/p/f6db3117864f
 * 启动类添加@EnableFeignClients
 * 编写接口和调用的controller对应，接口上添加@FeignClient，并指定应用名
 * 配置端口、应用名、客户端注册的serviceURL
+
+## hystrix
+> 导入netflix-hystrix启动包
+
+**Ribbon:**
+* 启动类上添加@EnableHystrix
+* 方法上添加@HystrixCommand，指定失败后回调方法
+* 根据返回值、形参编写回调方法
+
+**Feign:**
+* yml文件开启feign和hystrix的整合
+* @FeignClient指定fallback属性，Class类型
+* 编写fallback类，实现@FeignClient所在接口，类上添加@Component
+
+## Hystrix Dashboard
+> 导入启动包hystrix-dashboard即可
+
+* 启动类上添加@EnableHystrixDashboard注解
+* 注册ServletRegistrationBean的实例
+* 访问　http://localhost:8765/hystrix
+* 端口填写　http://localhost:8765/hystrix.stream
+* 标题随意

@@ -7,3 +7,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    ######### 默认为false，如果为true，则OpenFign客户端将使用Hystrix断路器进行封装
+    enabled: true

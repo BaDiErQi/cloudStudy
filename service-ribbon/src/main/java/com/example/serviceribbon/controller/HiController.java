@@ -1,5 +1,6 @@
 package com.example.serviceribbon.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +14,12 @@ public class HiController {
     private RestTemplate restTemplate;
 
     @RequestMapping("hi")
+    @HystrixCommand(fallbackMethod = "sayHiError")
     public String sayHi(@RequestParam("name") String name) {
         return restTemplate.getForObject("http://eureka-client/hi?name=" + name, String.class);
+    }
+
+    public String sayHiError(String name) {
+        return "discovery error!";
     }
 }
