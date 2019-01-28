@@ -3,7 +3,7 @@ server:
 spring:
   application:
     # 此属性被用来作为applicationContext的id，没有设置则采用"application"
-    name: service-hi
+    name: eureka-client
 eureka:
   client:
     service-url:
