@@ -77,3 +77,16 @@ https://www.jianshu.com/p/f6db3117864f
 
 参考：https://blog.csdn.net/forezp/article/details/69939114
 https://www.jianshu.com/p/865ad9360787
+
+## config server
+> 导入config-serve包
+
+* 启动类加@EnableConfigServer注解
+* yml配置git地址、分支、配置文件目录层级，非公开项目需要账号密码
+* 访问 http://localhost:8888/feng-config/dev 查看 propertySources 中是否包含配置文件feng-config-dev.yml的属性
+
+## config client
+> 导入config启动包，启动包包含config-client包
+
+* yml配置启动发现，配置config server的服务id
+* 指定配置文件的前半部分、配置文件的后半部分

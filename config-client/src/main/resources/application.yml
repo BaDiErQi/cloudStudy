@@ -1,0 +1,20 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      discovery:
+        ####### 启用config server discovery,将通过(发现)查找配置服务器URL
+        enabled: true
+        ####### 用于定位config server的服务id
+        service-id: config-server
+      ####### 配置文件后半部分
+      profile: dev
+      ####### 配置文件前半部分    配置文件：feng-config-dev.yml
+      name: feng-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

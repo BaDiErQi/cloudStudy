@@ -1,0 +1,23 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    ###########  远程仓库配置
+    config:
+      # git仓库分支
+      label: master
+      server:
+        git:
+          # git仓库地址
+          uri: https://github.com/BaDiErQi/configFile.git
+          # 配置文件目录层级
+          search-path: /
+          # 如果为公开仓库，用户名密码可不填
+          # username:
+          # password:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
