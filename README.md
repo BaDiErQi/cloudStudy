@@ -61,3 +61,19 @@ https://www.jianshu.com/p/f6db3117864f
 * 访问　http://localhost:8765/hystrix
 * 端口填写　http://localhost:8765/hystrix.stream
 * 标题随意
+
+## zuul
+> 导入启动包netflix-zuul，其中包含了web启动包，所以无需重复导入
+
+* 配置routes路由，设置拦截路径和对应服务id
+* 启动类配置@EnableZuulProxy注解
+* 访问不同的路径会调用对应的服务，比如：http://localhost:8769/feign/hi?name=feng
+
+**过滤器**
+* 创建过滤器继承ZuulFilter类
+* @Component注解注册过滤器
+* 创建失败回调类，实现FallbackProvider，并注册
+* getRoute方法中可以指定为哪个微服务回退，*为所有服务
+
+参考：https://blog.csdn.net/forezp/article/details/69939114
+https://www.jianshu.com/p/865ad9360787
