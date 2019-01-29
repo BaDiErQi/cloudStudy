@@ -102,3 +102,20 @@ https://www.jianshu.com/p/865ad9360787
 * 修改配置文件后，post请求访问：http://localhost:8881/actuator/bus-refresh  用另一个配置客户端查看读取是否更新
 
 参考：https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__bus_endpoints.html
+
+# zipkin
+
+**服务端**
+> 导入zipkin-server包和zipkin-autoconfigure-ui包
+
+* yml文件只配置端口
+* 启动类添加@EnableZipkinServer注解
+* 访问 http://localhost:9000/zipkin/
+
+**客户端**
+> 导入zipkin启动包
+
+* 配置zipkin基础路径，如果注册到了发现，可以用serviceId代替
+
+参考：https://www.jianshu.com/p/da9079a7656c   
+日志冲突解决：https://stackoverflow.com/questions/14024756/slf4j-class-path-contains-multiple-slf4j-bindings

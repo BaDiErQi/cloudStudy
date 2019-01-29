@@ -1,0 +1,8 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: zipkin-client
+  ############# 整合zipkin
+  zipkin:
+    base-url: http://localhost:9000 # zipkin查询服务实例的url，如果zipkin服务实例已被注册在发现中，可以使用服务id
