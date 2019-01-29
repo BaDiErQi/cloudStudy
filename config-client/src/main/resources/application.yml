@@ -1,5 +1,5 @@
 server:
-  port: 8881
+  port: 8882
 spring:
   application:
     name: config-client
@@ -14,7 +14,19 @@ spring:
       profile: dev
       ####### 配置文件前半部分    配置文件：feng-config-dev.yml
       name: feng-config
+  ########### 整合rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      ########### 放开的端口，*代表所有，基础路径/actuator/*
+      exposure:
+        include: "*"

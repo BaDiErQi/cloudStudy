@@ -90,3 +90,15 @@ https://www.jianshu.com/p/865ad9360787
 
 * yml配置启动发现，配置config server的服务id
 * 指定配置文件的前半部分、配置文件的后半部分
+
+## Bus
+> 导入bus-amqp启动包，包含rabbit的启动包和bus的启动包  
+> 还要导入actuator的启动包，bus-amqp中有依赖此包的地方
+
+* 检查rabbit服务是否开启，默认访问链接 http://localhost:15672/#/
+* spring整合rabbitMQ，地址、端口、账号、密码
+* 对需要重新获取实例的组件和实体类加上@RefreshScope注解
+* yml文件暴露bus-refresh端口
+* 修改配置文件后，post请求访问：http://localhost:8881/actuator/bus-refresh  用另一个配置客户端查看读取是否更新
+
+参考：https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__bus_endpoints.html
