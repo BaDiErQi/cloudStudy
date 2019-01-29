@@ -103,7 +103,7 @@ https://www.jianshu.com/p/865ad9360787
 
 参考：https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__bus_endpoints.html
 
-# zipkin
+## zipkin
 
 **服务端**
 > 导入zipkin-server包和zipkin-autoconfigure-ui包
@@ -119,3 +119,13 @@ https://www.jianshu.com/p/865ad9360787
 
 参考：https://www.jianshu.com/p/da9079a7656c   
 日志冲突解决：https://stackoverflow.com/questions/14024756/slf4j-class-path-contains-multiple-slf4j-bindings
+
+## high-availability
+> 导入eureka-server启动包
+
+* 启动类添加@EnableEurekaServer、@EnableEurekaClient
+* 写两份配置文件
+* 修改/etc/hosts后重启网络：sudo /etc/init.d/networking restart
+
+参考：https://blog.csdn.net/fantasywm/article/details/44493449
+高可用：https://blog.csdn.net/forezp/article/details/70183572
